@@ -1,0 +1,56 @@
+intents:
+  - admission_enqiry
+  - name_entry
+  - ssn_entry
+  - subject_entry
+  - feedback_detail
+
+entities:
+- name
+- ssn
+- subject
+
+slots:
+  name:
+    type: unfeaturized
+  ssn:
+    type: unfeaturized
+  subject_code:
+    type: unfeaturized
+
+responses:
+  utter_greet:
+  - text: "This is Admission department, how can I help you?"
+  utter_ask_name:
+  - text: "Your Name please?"
+  utter_ask_subject_code:
+  - text: "In which subject you want to take admission"
+  utter_ask_ssn:
+  - text: "Please provide your Social Security Number (ssn)"
+  utter_submit:
+  - text: "All done!"
+  utter_wrong_subject:
+  - text: "This subject is not in our list. Kindly provide other subject"
+  utter_wrong_ssn:
+  - text: "Social Security Number (ssn) must be of 6 disgit only"
+  utter_ask_feedback:
+  - text: "please give your feedback on your experience so far"
+  utter_slots_values:
+  - text: "I am submitting your PhD admission request with following details \n
+    - name: {name}\n
+    - ssn: {ssn}\n
+    - subject: {subject_code}"
+
+
+  utter_thanks:
+  - text: "Thanks for your feedback"
+  utter_goodbye:
+  - text: "Bye"
+
+
+forms:
+- admission_form
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
